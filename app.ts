@@ -11,9 +11,16 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
+
+// 정적 파일 제공
+app.use(express.static(path.join(__dirname, "../PortFolio/dist")));
 
 app.use("/", indexRouter);
+
+// React에 모든 라우터 처리
+app.get("*", (req: Request, res: Response) => {
+  res.sendFile(path.join(__dirname, "../PortFolio/dist/index.html"));
+});
 
 // catch 404 and forward to error handler
 app.use((req: Request, res: Response, next: NextFunction) => {

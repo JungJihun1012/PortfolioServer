@@ -3,9 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon --exec ts-node ./bin/www"
+    "start": "nodemon --exec ts-node ./bin/www",
+    "server": "pnpm --prefix backend start",
+    "client": "pnpm --prefix frontend start"
   },
   "dependencies": {
+    "concurrently": "^8.2.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
