@@ -6,11 +6,15 @@ import logger from "morgan";
 import indexRouter from "./routes/index";
 
 const app = express();
+const GOOGLE_CLINET_ID = process.env.GOOGLE_CLIENT_ID;
+// const GOOGLE_CLIENT_SECRET = process.env.
 
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+
 
 // 정적 파일 제공
 app.use(express.static(path.join(__dirname, "../PortFolio/dist")));
